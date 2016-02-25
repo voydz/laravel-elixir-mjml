@@ -13,9 +13,7 @@ Elixir.extend("mjml", function(src, output) {
     };
 
     config.html.mjml = {
-        folder: 'mjml',
-
-        outputPath: config.get('public.html.outputFolder')
+        folder: 'mjml'
     };
 
     new Task('mjml', function() {
@@ -39,5 +37,5 @@ Elixir.extend("mjml", function(src, output) {
 var prepGulpPaths = function(src, output) {
     return new Elixir.GulpPaths()
         .src(src, config.get('assets.html.mjml.folder'))
-        .output(output || config.get('public.html.mjml.outputPath'));
+        .output(output || config.get('public.html.outputFolder'));
 };
