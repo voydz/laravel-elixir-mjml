@@ -1,0 +1,29 @@
+{
+  "name": "laravel-elixir-mjml",
+  "version": "1.0.0",
+  "description": "Laravel Elixir MJML Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no tests found\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voydz/laravel-elixir-mjml.git"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "gulp",
+    "mjml"
+  ],
+  "author": "Felix Rudat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voydz/laravel-elixir-mjml/issues"
+  },
+  "homepage": "https://github.com/voydz/laravel-elixir-mjml#readme",
+  "dependencies": {
+    "mjml": "^1.2.1",
+    "gulp-mjml": "^1.0.0"
+  }
+}
