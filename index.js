@@ -16,14 +16,16 @@ Elixir.extend("mjml", function(src, output) {
         folder: 'mjml'
     };
 
-    new Task('mjml', function() {
-        var paths = prepGulpPaths(src, output);
+    var paths = prepGulpPaths(src, output);
 
+    new Task('mjml', function() {
         gulp.src(paths.src.path)
             .pipe(mjml())
             .pipe(gulp.dest(paths.output.baseDir))
             .pipe(new Notify('MJML Compiled!'));
-    });
+    })
+    .watch(paths.src.baseDir + '/**/*.mjml')
+    .ignore(paths.output.path);
 
 });
 
