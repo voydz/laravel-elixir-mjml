@@ -3,9 +3,10 @@ var mjml = require('gulp-mjml')
 var Elixir = require("laravel-elixir");
 
 var Task = Elixir.Task;
+var Notify = Elixir.Notification;
 var config = Elixir.config;
 
-Elixir.extend("mjml", function(src, output, options) {
+Elixir.extend("mjml", function(src, output) {
 
     config.html = {
         outputFolder: 'html'
@@ -14,13 +15,16 @@ Elixir.extend("mjml", function(src, output, options) {
     config.html.mjml = {
         folder: 'mjml',
 
-        outputPath: options.outputPath || config.get('public.html.outputFolder')
+        outputPath: config.get('public.html.outputFolder')
     };
 
     new Task('mjml', function() {
         var paths = prepGulpPaths(src, output);
 
-        gulp.src(paths.src).pipe(mjml()).pipe(paths.output);
+        gulp.src(paths.src.path)
+            .pipe(mjml())
+            .pipe(gulp.dest(paths.output.baseDir))
+            .pipe(new Notify('MJML Compiled!'));
     });
 
 });
@@ -35,5 +39,5 @@ Elixir.extend("mjml", function(src, output, options) {
 var prepGulpPaths = function(src, output) {
     return new Elixir.GulpPaths()
         .src(src, config.get('assets.html.mjml.folder'))
-        .output(output, config.get('html.mjml.outputPath'));
+        .output(output || config.get('public.html.mjml.outputPath'));
 };
