@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-mjml",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Laravel Elixir MJML Extension",
   "main": "index.js",
   "scripts": {

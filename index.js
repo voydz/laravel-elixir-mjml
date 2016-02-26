@@ -2,9 +2,10 @@ var gulp = require('gulp');
 var mjml = require('gulp-mjml')
 var Elixir = require("laravel-elixir");
 
+var $ = Elixir.Plugins;
+var config = Elixir.config;
 var Task = Elixir.Task;
 var Notify = Elixir.Notification;
-var config = Elixir.config;
 
 Elixir.extend("mjml", function(src, output) {
 
@@ -21,6 +22,7 @@ Elixir.extend("mjml", function(src, output) {
     new Task('mjml', function() {
         gulp.src(paths.src.path)
             .pipe(mjml())
+            .pipe($.concat(paths.output.name))
             .pipe(gulp.dest(paths.output.baseDir))
             .pipe(new Notify('MJML Compiled!'));
     })
