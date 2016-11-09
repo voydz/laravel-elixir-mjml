@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-mjml",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Laravel Elixir MJML Extension",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/voydz/laravel-elixir-mjml#readme",
   "dependencies": {
-    "mjml": "^1.2.1",
-    "gulp-mjml": "^1.0.0"
+    "mjml": "^2.3.0",
+    "gulp-mjml": "^2.0.0"
   }
 }
